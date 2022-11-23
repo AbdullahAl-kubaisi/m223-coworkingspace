@@ -11,6 +11,15 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import java.util.List;
 
 
+/**
+ * ZLI - M 223
+ * @author Al-Kubaisi Abdullah
+ * @version 23.11.2022
+ * Controller to implement the endpoints
+ */
+
+
+
 @Path("/booking")
 @Tag(name = "Booking", description = "Handling of bookings")
 public class BookingController {

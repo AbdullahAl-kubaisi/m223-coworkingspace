@@ -11,6 +11,14 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 import javax.annotation.security.PermitAll;
 
+/**
+ * ZLI - M 223
+ * @author Al-Kubaisi Abdullah
+ * @version 23.11.2022
+ * Controller to implement the endpoints
+ */
+
+
 @Path("/products")
 @Tag(name = "Canteen", description = "Handling of canteens")
 

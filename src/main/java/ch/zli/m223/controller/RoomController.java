@@ -11,6 +11,12 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
+/**
+ * ZLI - M 223
+ * @author Al-Kubaisi Abdullah
+ * @version 23.11.2022
+ * Controller to implement the endpoints
+ */
 
 
 @Path("/isavailable")
