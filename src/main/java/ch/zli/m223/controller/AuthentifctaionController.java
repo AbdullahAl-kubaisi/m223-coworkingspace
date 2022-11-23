@@ -33,7 +33,7 @@ public class AuthentifctaionController {
         @PermitAll
         @Consumes(MediaType.APPLICATION_JSON)
         @Produces(MediaType.APPLICATION_JSON)
-        public Response login(@QueryParam("email")String email, @QueryParam("password") String password) {
+        public String login(@QueryParam("email")String email, @QueryParam("password") String password) {
             return authentifctaionService.login(email, password);
         }
     
