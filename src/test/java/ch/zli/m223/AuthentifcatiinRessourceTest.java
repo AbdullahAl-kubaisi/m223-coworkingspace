@@ -18,9 +18,19 @@ public class AuthentifcatiinRessourceTest {
         given()
             .contentType(ContentType.JSON)
             .when()
-                .post("http://localhost:8080/login?email=and%40bat.com&password=and")
+                .post("http://localhost:8080/auth/login?email=leo.ll@hotmail.com&password=Leo123")
             .then()
-            .statusCode(404);
+            .statusCode(200);
+    }
+
+    @Test
+    public void testPostLoginInvalid() {
+        given()
+            .contentType(ContentType.JSON)
+            .when()
+                .post("http://localhost:8080/auth/login?email=leo.ll@hotmail.com&password=Leo12")
+            .then()
+            .statusCode(500);
     }
 
 

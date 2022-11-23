@@ -40,11 +40,6 @@ VALUES (1, 2);
 INSERT INTO canteen_user (snack_idfs, user_idfs)
 VALUES (2, 3);
 
-INSERT INTO coworking_user_coworking_user(othermembers_id, User_id)
-VALUES (1,2);
-
-INSERT INTO coworking_user_coworking_user(othermembers_id, User_id)
-VALUES (2,3);
 
 
 
