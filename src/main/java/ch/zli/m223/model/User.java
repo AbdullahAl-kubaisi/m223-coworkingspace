@@ -5,10 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+/**
+ * ZLI - M 223
+ * @author Al-Kubaisi Abdullah
+ * @version 23.11.2022
+ * OPJO class to difine the entities
+ */
 
 
 @Entity
@@ -19,12 +29,25 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(readOnly = true)
     private long id;
-    private String firstname;
-    private String lastname;
-    private String email;
-    private String password;
 
+    @Column(nullable = false)
+    @Size(min = 1, max = 20)
+    private String firstname;
+
+    @Size(min = 1, max = 20)
+    private String lastname;
+
+    @Email
+    @NotEmpty
+    private String email;
+
+    
+    @Column(nullable = false)
+    @NotEmpty
+    private String password;
     private int age;
+
+    @Size(min = 1, max = 20)
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)

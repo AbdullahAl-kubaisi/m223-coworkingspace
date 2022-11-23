@@ -2,8 +2,16 @@ package ch.zli.m223.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.*;
+
+
+/**
+ * ZLI - M 223
+ * @author Al-Kubaisi Abdullah
+ * @version 23.11.2022
+ * OPJO class to difine the entities
+ */
+
 
 @Entity
 @Table(name = "room")
