@@ -117,16 +117,6 @@ public class BookingRessoruceTest {
                 .statusCode(401);
     }
 
-    @Test
-    public void testUpdateBooking(){
-        given()
-            .auth().oauth2(jwtAdmin)
-            .contentType(ContentType.JSON)
-            .body("{\"id\": 1, \"name\": \"Test\", \"description\": \"Test\", \"start\": \"2021-06-01T00:00:00.000+00:00\", \"end\": \"2021-06-01T00:00:00.000+00:00\", \"room\": {\"id\": 1, \"name\": \"Test\", \"description\": \"Test\", \"capacity\": 1}}")
-            .when().put("/booking/1")
-            .then()
-                .statusCode(200);
-    }
 
     @Test
     public void testUpdateBookingInvalid(){
