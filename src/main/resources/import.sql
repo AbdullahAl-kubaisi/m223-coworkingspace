@@ -1,17 +1,50 @@
-INSERT INTO Role(id, role)
-VALUES (1, 'Admin');
-INSERT INTO Role(id, role)
-VALUES (2, 'Member');
+INSERT INTO user_role (id, role) VALUES (1,'admin');
+INSERT INTO user_role (id, role) VALUES (2,'member');
 
-INSERT INTO User(id, firstname, lastname, email, password,gender, age, description, role, job )
-VALUES (1, 'leo','messi','leo@gemail.com','Leo123',MALE,'keine',30, 1,'IT');
+INSERT INTO coworking_user (job, role_id, description,age, password, email, lastname, firstname, id)
+VALUES ('Student',1,'CEO',55, 'Leo123','leo.ll@hotmail.com','leo', 'messi', 1);
 
-INSERT INTO User(id, firstname, lastname, email, password,gender, age, description, role, job )
-VALUES (2, 'thomas','albori','thomi@gemail.com','thomA123',MALE,40,'keine',2,'IT');
+INSERT INTO coworking_user (job, role_id, description,age, password, email, lastname, firstname, id)
+VALUES ('Informatiker',2,'er ist ruhig',23, 'Manuuu123','manu44@gmail.com','Borli', 'Manuel', 2);
 
-INSERT INTO Room(id, title, free, Booking)
-VALUES(1,'room 10',TRUE, 1)
+INSERT INTO coworking_user (job, role_id, description,age, password, email, lastname, firstname, id)
+VALUES ('lehrer',2,'keine',30, 'Tjsek123','mynameIs@hotmail,com','Alpori', 'Temo', 3);
 
-INSERT INTO Booking(id, title, description, status, user, room, startDate, endDate, halfDay)
-VALUES (2,'grossRoom','mit Klima', ACCEPTED, 2, 1, )
+INSERT INTO booking (user_id, room_id, title, startDate, halfDay, endDate, description, Status, id)
+VALUES (2, 1, 'mr', '2022-22-10',TRUE, '2022-23-10','keine',ACCEPTED, 1);
+
+INSERT INTO booking (user_id, room_id, title, startDate, halfDay, endDate, description, Status, id)
+VALUES (3, 3, 'mr', '2022-22-10',TRUE, '2022-23-10','keine',ACCEPTED, 2);
+
+INSERT INTO room (title, free,id)
+VALUES ('room mit klima', TRUE, 1);
+
+INSERT INTO room (title, free,id)
+VALUES ('room ohne klima', FALSE, 2);
+
+INSERT INTO room (title, free,id)
+VALUES ('kleines Zimmer', TRUE, 3);
+
+INSERT INTO canteen (Price, name, id)
+VALUES (2.5, 'Ahmed', 1);
+
+INSERT INTO canteen (Price, name, id)
+VALUES (3.5, 'Ali', 2);
+
+INSERT INTO canteen (Price, name, id)
+VALUES (4.5, 'Al', 3);
+
+INSERT INTO canteen_user (snack_idfs, user_idfs)
+VALUES (1, 2);
+
+INSERT INTO canteen_user (snack_idfs, user_idfs)
+VALUES (2, 3);
+
+INSERT INTO coworking_user_coworking_user(othermembers_id, User_id)
+VALUES (1,2);
+
+INSERT INTO coworking_user_coworking_user(othermembers_id, User_id)
+VALUES (2,3);
+
+
 
