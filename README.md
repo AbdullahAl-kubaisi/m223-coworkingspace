@@ -5,6 +5,10 @@ Dieses Projekt verwendet Quarkus "Java Framework". Die offizielle Website: https
 Das Projekt ist besteht aus einer einfachen REST-API, die es ermöglicht, zu erstellen, zu lesen, zu aktualisieren, zu löschen von
 Buchungen und Benutzer: https://github.com/AbdullahAl-kubaisi/m223-coworkingspace.git
 
+# Test-Daten : Coworking Space
+
+Die Testdaten befinden sich in /src/main/resources/import.sql.
+
 ## Setup
 
 1. Machen Sie eine Kopie vom Projekt(Fork).
