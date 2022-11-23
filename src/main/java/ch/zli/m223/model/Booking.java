@@ -1,6 +1,9 @@
 package ch.zli.m223.model;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 
 @Entity
@@ -13,10 +16,10 @@ public class Booking {
     private String title;
     private String description;
     private  Status Status;
-    @ManyToOne()
+    @ManyToOne
+    @JsonIgnore
     private User user;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "room_id")
+    @ManyToOne
     private Room room;
     private Date startDate;
     private Date endDate;
@@ -64,11 +67,11 @@ public class Booking {
         this.user = user;
     }
 
-    public Room getRoomToUse() {
+    public Room getRoom() {
         return room;
     }
 
-    public void setRoomToUse(Room room) {
+    public void setRoom(Room room) {
         this.room = room;
     }
 

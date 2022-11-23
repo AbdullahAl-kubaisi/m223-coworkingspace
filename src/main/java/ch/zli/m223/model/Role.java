@@ -1,11 +1,13 @@
 package ch.zli.m223.model;
 
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "role")
+@Table(name = "user_role")
 public class Role {
 
     @Id
@@ -13,6 +15,7 @@ public class Role {
     private int id;
     private String role;
     @OneToMany(mappedBy = "role")
+    @JsonIgnore
     private List<User> users = new ArrayList<User>();
 
     public int getId() {

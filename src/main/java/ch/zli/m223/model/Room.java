@@ -1,5 +1,8 @@
 package ch.zli.m223.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,8 +14,9 @@ public class Room {
     private int id;
     private String title;
     private boolean free;
-    @OneToOne(mappedBy = "room")
-    private Booking booking;
+
+    @OneToMany(mappedBy = "room")
+    private List<Booking> booking = new ArrayList<Booking>();
 
     public int getId() {
         return id;
@@ -38,11 +42,18 @@ public class Room {
         this.free = free;
     }
 
-    public Booking getBooking() {
-        return booking;
+
+    public boolean getFree() {
+        return this.free;
     }
 
-    public void setBooking(Booking booking) {
+
+    public List<Booking> getBooking() {
+        return this.booking;
+    }
+
+    public void setBooking(List<Booking> booking) {
         this.booking = booking;
     }
+ 
 }

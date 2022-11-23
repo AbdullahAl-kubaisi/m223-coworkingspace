@@ -2,41 +2,48 @@ package ch.zli.m223.model;
 
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
-@Table(name = "user")
+@Table(name = "coworking_user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(readOnly = true)
     private long id;
     private String firstname;
-    @Column(nullable = false)
     private String lastname;
     private String email;
     private String password;
 
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
     private int age;
     private String description;
-    private Date register_date;
+
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private Role role;
+
     private String job;
 
     @OneToMany()
     private List<User> othermembers = new ArrayList<User>();
+
     @OneToMany(mappedBy = "user")
     private List<Booking> bookingList = new ArrayList<Booking>();
-    @ManyToMany()
-    @JoinTable(name = "CanteenToUser", joinColumns = {@JoinColumn(name = "user_id")},inverseJoinColumns = {@JoinColumn(name = "snack_idfs")})
-    private List<Canteen> snacksList = new ArrayList<Canteen>();
+
+    @ManyToMany
+    @JsonIgnore
+    @JoinTable(name = "canteen_user", joinColumns = @JoinColumn(name = "user_idfs"), inverseJoinColumns = @JoinColumn(name = "snack_idfs"))
+    private List<Canteen> canteen = new ArrayList<Canteen>();
+
 
 
     public long getId() {
@@ -95,13 +102,6 @@ public class User {
         this.description = description;
     }
 
-    public Date getRegister_date() {
-        return register_date;
-    }
-
-    public void setRegister_date(Date register_date) {
-        this.register_date = register_date;
-    }
 
     public Role getRole() {
         return role;
@@ -119,13 +119,6 @@ public class User {
         this.job = job;
     }
 
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
 
     public List<User> getOthermembers() {
         return othermembers;
@@ -143,11 +136,14 @@ public class User {
         this.bookingList = bookingList;
     }
 
-    public List<Canteen> getSnacksList() {
-        return snacksList;
+
+    public List<Canteen> getCanteen() {
+        return this.canteen;
     }
 
-    public void setSnacksList(List<Canteen> snacksList) {
-        this.snacksList = snacksList;
+    public void setCanteen(List<Canteen> canteen) {
+        this.canteen = canteen;
     }
+
+    
 }

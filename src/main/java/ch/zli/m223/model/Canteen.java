@@ -1,5 +1,8 @@
 package ch.zli.m223.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -12,6 +15,9 @@ public class Canteen {
     private long id;
     private String name;
     private float price;
+    @ManyToMany(mappedBy = "canteen")
+    private List<User> users = new ArrayList<User>();
+
 
 
     public long getId() {
@@ -37,5 +43,15 @@ public class Canteen {
     public void setPrice(float price) {
         this.price = price;
     }
+
+
+    public List<User> getUsers() {
+        return this.users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
 
 }
